@@ -5,27 +5,47 @@ const { Product, Category, Tag, ProductTag } = require('../../models');
 
 // get all products
 router.get('/', (req, res) => {
-  Product.findAll()
-  .then((CategoryData)=> res.json(CategoryData))
-  .catch((error)=> res.status(500).json(error))
+  Product.findAll({
+    include: [
+      Category,
+      {
+        model:Tag,
+        through: ProductTag,
+      },
+    ],
+  })
+  .then((products)=> res.json(products))
+  .catch((err)=> res.status(500).json(err))
   // find all products
-  // be sure to include its associated Category and Tag data
+  // be sure to include its associated Category and Tag products
 });
 
 // get one product
 router.get('/:id', (req, res) => {
-  Product.findByIdValue()
-  .then((data)=> res.json(data))
-  .catch((error)=> res.status(500).json(error))
+  Product.findOne({
+    where: {
+      id: req.params.id,
+    },
+    include: [
+      Category,
+      {
+        model: Tag,
+        through: ProductTag,
+      },
+    ],
+    
+   })
+  .then((products)=> res.json(products))
+  .catch((err)=> res.status(400).json(err))
   // find a single product by its `id`
-  // be sure to include its associated Category and Tag data
+  // be sure to include its associated Category and Tag products
 });
 
 // create new product
 router.post('/', (req, res) => {
   // Product.createNewProduct()
-  // .then((data)=> res.json(data))
-  // .catch((error)=> res.status(500).json(error))
+  // .then((products)=> res.json(products))
+  // .catch((err)=> res.status(500).json(err))
   /* req.body should look like this...
     {
       product_name: "Basketball",
@@ -58,7 +78,7 @@ router.post('/', (req, res) => {
 
 // update product
 router.put('/:id', (req, res) => {
-  // update product data
+  // update product products
   Product.update(req.body, {
     where: {
       id: req.params.id,
@@ -99,6 +119,19 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
+  Product.destroy({
+    where: {
+      id: req.params.id,
+    },
+  })
+  .then((products)=>{
+    console.log(products);
+    res.json(products)
+  }
+  ).catch((err)=>{
+    console.log(err);
+    res.status(400).json(err);
+  });
   // delete one product by its `id` value
 });
 
