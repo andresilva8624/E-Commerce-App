@@ -33,7 +33,7 @@ Product.init(
 
     defaultValue: 10,
     validade: {
-    IsNumeric:true,
+    isNumeric:true,
     }
   },
   category_id:{
