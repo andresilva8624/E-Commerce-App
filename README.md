@@ -5,7 +5,7 @@
 
 ## Description
 
-The app development was to modify the starter code to create an application called E-Commerce App. You’ll configure a working Express.js API to use Sequelize to interact with a MySQL database. Insonmia is used for the GET for categories, products or tags. The data is displayed in a formatted JSON. You can create, update, and delete data in the database by using API POST, PUT, and DELETE routes in Insomnia.
+The app development was to modify the starter code to create an application called E-Commerce App. You’ll need to configure a working Express.js API to use Sequelize to interact with a MySQL database. Insonmia is used for the GET for categories, products or tags. The data is displayed in a formatted JSON. You can create, update, and delete data in the database by using API POST, PUT, and DELETE routes in Insomnia.
 Enjoy! 😀
 
 - [Installation](#installation)
@@ -15,20 +15,19 @@ Enjoy! 😀
 - [Contact](#contact)
 
 ## Installation
-You’ll need to use the MySQL2. and Sequelize to an external site. packages to connect your Express.js API to a MySQL database and the dotenv package. to use environment variables to store sensitive data, like your MySQL username, password, and database name.
+You’ll need to use the MySQL2 and Sequelize packages to connect your Express.js API to a MySQL database and the dotenv package to use environment variables to store sensitive data, like your MySQL username, password, and database name.
 
 Use the schema.sql file in the db folder to create your database using MySQL shell commands. Use environment variables to store sensitive data, like your MySQL username, password, and database name.
+
 Clone the repository to your local machine and open the server.js on your Terminal with Node.js
 
 ## Usage
 
-[Deployed Site Repository](https://github.com/andresilva8624/Note-Taker/)
+[Deployed Site Repository](https://github.com/andresilva8624/E-Commerce-App/)
 
-[Deployed Site Web](https://andresilva8624.github.io/Note-Taker/)
+[Deployed Site Web](https://andresilva8624.github.io/E-Commerce-App/)
 
-[Heroku App](https://andres-note-taker.herokuapp.com/)
-
-![gif of deployed site](/public/assets/images/website.gif)
+[Demonstrational Video Link](https://drive.google.com/file/d/10hh2kREl2e84XbvPGYHw_e-nRyquFwz3/view)
 
 ## Credits
 
