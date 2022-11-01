@@ -7,12 +7,12 @@ router.get('/', (req, res) => {
   Tag.findAll({
     include: [
       {
-        model:Tag,
+        model:Product,
         through: ProductTag,
       },
     ],
   })
-  .then((tags)=> res.status(200).json(tags))
+  .then((tag)=> res.status(200).json(tag))
   .catch((err)=> res.status(500).json(err))
   // find all tags
   // be sure to include its associated tag data
@@ -24,7 +24,7 @@ router.get('/:id', (req, res) => {
       id: req.params.id,
     },
     include: [
-      Category,
+      
       {
         model: Product,
         through: ProductTag,
@@ -57,7 +57,7 @@ router.put('/:id', (req, res) => {
 });
 
 router.delete('/:id', (req, res) => {
-  Tag.destroy(req.body, {
+  Tag.destroy({
     where: {
       id: req.params.id,
     }
